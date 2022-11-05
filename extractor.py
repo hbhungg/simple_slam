@@ -41,4 +41,4 @@ class Extractor:
 
     # Save last frame stuff
     self.last = {"img": img, "kps": kps, "des": des}
-    return kps, des, ret
+    return ret

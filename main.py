@@ -24,14 +24,14 @@ if __name__ == "__main__":
   while cap.isOpened():
     ret, frame = cap.read()
     if ret:
-      kps, des, matches = ex.extract_feature(frame)
+      matches = ex.extract_feature(frame)
       if matches is not None:
-        # Draw match lines
+        # Draw match lines and keypoints
         for pt1, pt2 in matches:
           cv2.line(frame, tuple(pt1), tuple(pt2), (255,0,0), 2)
-      # Draw keypoints
-      frame_orb = cv2.drawKeypoints(frame, kps, None, color=(0, 255, 0), flags=0)
-      cv2.imshow(video_path, frame_orb)
+          cv2.circle(frame, tuple(pt1), 1, (0, 255, 0), 2)
+          #cv2.circle(frame, tuple(pt2), 1, (0, 0, 255), 2)
+      cv2.imshow(video_path, frame)
 
       if cv2.waitKey(25) & 0xFF == ord("q"): break
     else: break

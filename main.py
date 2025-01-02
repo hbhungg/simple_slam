@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import numpy as np
-import torch
 import cv2
 
 from extractor import Extractor

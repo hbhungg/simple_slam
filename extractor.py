@@ -3,7 +3,8 @@ import numpy as np
 
 class Extractor:
   def __init__(self):
-    self.orb = cv2.ORB_create()
+    self.orb = cv2.ORB().create()
+    print(self.orb)
     self.bf = cv2.BFMatcher(cv2.NORM_HAMMING)
     self.last = None
 
